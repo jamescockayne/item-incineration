@@ -1,0 +1,9 @@
+{
+	"name": "item-incineration",
+	"version": "0.1.0",
+	"title": "Item Incineration",
+	"author": "ForTheOnesThere",
+	"factorio_version": "1.1",
+	"dependencies": ["base >= 1.1"],
+	"description": "Too much stuff? Not enough pollution? Incinerate!"
+}
