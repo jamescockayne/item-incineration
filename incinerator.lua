@@ -18,6 +18,12 @@ entity.minable = {
     mining_time = 1,
     result = "incin-item",
 }
+entity.energy_usage = "1800kW"
+entity.energy_source = {
+    type = "electric",
+    emissions_per_minute = 10,
+    usage_priority = "secondary-input"
+}
 
 
 data:extend{item, entity}
