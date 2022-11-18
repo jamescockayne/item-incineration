@@ -1,4 +1,5 @@
 -- data.lua
 
-require("definitions")
+require("incinerator")
+require("ash")
 require("recipes")
