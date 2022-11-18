@@ -34,7 +34,7 @@ function addIncinerationRecipesForPrototype(prototype, checkItems)
                 icon = "__item-incineration__/fire-icon.png",
                 icon_size = 512,
                 result = "ash",
-                energy_required = 2,
+                energy_required = 10,
                 hidden = true
             }}
         end
