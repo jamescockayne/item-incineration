@@ -12,11 +12,10 @@ data:extend{recipe}
 
 
 -- add new recipe category to hold incinerating machine recipes
-local incineration_recipe_category = {
+data:extend{{
     name = "incineration",
     type = "recipe-category"
-}
-data:extend{incineration_recipe_category}
+}}
 
 
 -- add a recipe for every item by looping through every entry in a prototype table
@@ -24,7 +23,7 @@ data:extend{incineration_recipe_category}
 function addIncinerationRecipesForPrototype(prototype, checkItems)
     for itemName, item in pairs(data.raw[prototype]) do 
         if not checkItems or data.raw["item"][itemName] then
-            local new_recipe = {
+            data:extend{{
                 name = "incinerate_" .. itemName,
                 type = "recipe",
                 category = "incineration",
@@ -37,8 +36,7 @@ function addIncinerationRecipesForPrototype(prototype, checkItems)
                 result = "ash",
                 energy_required = 2,
                 hidden = true
-            }
-            data:extend{new_recipe}
+            }}
         end
     end
 end
@@ -49,6 +47,7 @@ addIncinerationRecipesForPrototype "ammo"
 addIncinerationRecipesForPrototype "repair-tool"
 addIncinerationRecipesForPrototype "capsule"
 addIncinerationRecipesForPrototype("projectile", true)
+
 
 -- add a recipe so there's actually something to do with all the ash
 local ash_to_landfill_recipe = table.deepcopy(data.raw["recipe"]["landfill"])
