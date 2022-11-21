@@ -5,5 +5,5 @@
 	"author": "ForTheOnesThere",
 	"factorio_version": "1.1",
 	"dependencies": ["base >= 1.1"],
-	"description": "Too much stuff? Not enough pollution? Incinerate!\n\nThis mod adds a variant of the electric smelter that you can use to burn (almost) anything to ash. You can then compact each stack of ash to a tile of landfill using an assembling machine. But be careful - burning all that stuff emits lots of pollution.\n\nFeatures configurable settings in case you just want to quickly burn things into thin air, as quickly as your inserters will let you.\n\n9/10 Biters would recommend this mod to a friend."
+	"description": "Too much stuff? Not enough pollution? Incinerate!\n\nThis mod adds a variant of the electric smelter that you can use to burn (almost) anything to ash, which in turn can be compacted to landfill.\n\nFeatures configurable settings in case you just want to quickly burn things into thin air, as quickly as your inserters will let you.\n\n But be careful - burning all that stuff emits lots of pollution. There's a reason that 9/10 biters would recommend this mod to a friend."
 }
