@@ -17,26 +17,47 @@ data:extend{{
     type = "recipe-category"
 }}
 
+-- add a useless item subgroup so that the game doesn't complain about no recipe results later
+data:extend{{
+    group = "effects",
+    name = "produces-nothing",
+    type = "item-subgroup"
+}}
+
+local produceNothing = settings.startup["item-incineration-true-incineration"].value
+local quickIncinerate = settings.startup["item-incineration-quick-incineration"].value
 
 -- add a recipe for every item by looping through every entry in a prototype table
 -- 'checkItems' only exists because projectiles are weird
 function addIncinerationRecipesForPrototype(prototype, checkItems)
     for itemName, item in pairs(data.raw[prototype]) do 
         if not checkItems or data.raw["item"][itemName] then
-            data:extend{{
+            local new_recipe = {
                 name = "incinerate_" .. itemName,
                 type = "recipe",
                 category = "incineration",
+                subgroup = "produces-nothing",
                 enabled = true,
                 ingredients = {
                     {itemName, 1}
                 },
                 icon = "__item-incineration__/fire-icon.png",
                 icon_size = 512,
-                result = "ash",
                 energy_required = 10,
-                hidden = true
-            }}
+                hidden = true,
+            }
+
+            if produceNothing then 
+                new_recipe.results = {}
+            else 
+                new_recipe.result = "ash"
+            end
+
+            if quickIncinerate then 
+                new_recipe.energy_required = new_recipe.energy_required / 1000
+            end
+            
+            data:extend{new_recipe}
         end
     end
 end
